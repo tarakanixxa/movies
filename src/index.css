@@ -334,7 +334,7 @@ html, body {
 }
 
 
-button {
+.custom-button {
   border: none;
   position: relative;
   width: 200px;
@@ -354,7 +354,7 @@ button {
   font-size: 24px;
 }
 
-button::before {
+.custom-button::before {
   content: '';
   position: absolute;
   width: 0%;
@@ -367,12 +367,12 @@ button::before {
 
 }
 
-button:hover::before {
+.custom-button:hover::before {
   width: 100%;
 
 }
 
-button span {
+.custom-button span {
   position: absolute;
   width: 100%;
   font-family: 'Lobster', cursive;
@@ -387,7 +387,7 @@ button span {
   transition: color 0.5s ease-in-out;
 }
 
-button:hover span {
+.custom-button:hover span {
   color: rgb(0, 0, 0);
   z-index: 1;
 }
