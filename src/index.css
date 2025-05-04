@@ -300,3 +300,35 @@ html, body {
 .scroll-button:hover {
   opacity: 1;
 }
+.cinema-hall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.seat:hover {
+  transform: scale(1.1);
+}
+
+.seat.available {
+  filter: hue-rotate(100deg); /* зелений */
+}
+
+.seat.selected {
+  filter: hue-rotate(200deg); /* синій */
+}
