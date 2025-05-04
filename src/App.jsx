@@ -8,25 +8,29 @@ const App = () => {
 
   useEffect(() => {
     const handleWheel = (event) => {
-   
       if (event.deltaY !== 0) {
         event.preventDefault(); 
         movieListRef.current.scrollLeft += event.deltaY; 
       }
     };
 
-  
     if (movieListRef.current) {
       movieListRef.current.addEventListener('wheel', handleWheel, { passive: false });
     }
 
- 
     return () => {
       if (movieListRef.current) {
         movieListRef.current.removeEventListener('wheel', handleWheel);
       }
     };
   }, []);
+
+  const scroll = (direction) => {
+    if (movieListRef.current) {
+      const scrollAmount = 300; 
+      movieListRef.current.scrollLeft += direction === 'left' ? -scrollAmount : scrollAmount;
+    }
+  };
 
   const filteredMovies = moviesData.filter((movie) =>
     movie.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -43,6 +47,15 @@ const App = () => {
         />
         <i className="fa fa-search"></i>
       </div>
+
+  
+      <button className="scroll-button left" onClick={() => scroll('left')}>
+        ❮
+      </button>
+      <button className="scroll-button right" onClick={() => scroll('right')}>
+        ❯
+      </button>
+
       <MovieList ref={movieListRef} movies={filteredMovies} />
     </div>
   );
