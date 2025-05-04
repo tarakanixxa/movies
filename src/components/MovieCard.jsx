@@ -11,7 +11,10 @@ const MovieCard = ({ movie }) => {
       <div className="movie-left">
         <img src={movie.poster} alt={movie.title} className="movie-poster" />
         <h2 className="movie-title">{movie.title}</h2>
-        <button onClick={() => navigate(`/booking/${movie.id}`)}>Забронювати</button>
+        <button className="custom-button" onClick={() => navigate(`/booking/${movie.id}`)}>
+  <span>Забронювати</span>
+</button>
+
       </div>
 
       <div className="movie-right">
