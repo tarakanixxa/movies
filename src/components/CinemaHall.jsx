@@ -22,12 +22,13 @@ const CinemaHall = () => {
 
   return (
     <div className="cinema-hall">
+    <div className="seat-container">
       {seatLayout.map((seatsInRow, row) => (
         <div className="row" key={row}>
           {Array.from({ length: seatsInRow }, (_, i) => {
             const seatId = `${row}-${i}`;
             const isSelected = selectedSeats.includes(seatId);
-
+  
             return (
               <img
                 key={seatId}
@@ -40,18 +41,20 @@ const CinemaHall = () => {
           })}
         </div>
       ))}
-
-      <p className="selected-seats">
-        Вибрані місця: {selectedSeats.join(', ') || 'немає'}
-      </p>
-
-      <button
-        className="custom-buttons"
-        onClick={() => navigate('/home')}
-      >
-        <span>На головну</span>
-      </button>
     </div>
+  
+    <p className="selected-seats">
+      Вибрані місця: {selectedSeats.join(', ') || 'немає'}
+    </p>
+  
+    <button
+      className="custom-buttons"
+      onClick={() => navigate('/home')}
+    >
+      <span>На головну</span>
+    </button>
+  </div>
+  
   );
 };
 
