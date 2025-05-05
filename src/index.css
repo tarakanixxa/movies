@@ -12,7 +12,7 @@ html, body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #071108, #364652);
+    background: black;
 
   }
 
@@ -300,21 +300,41 @@ html, body {
   transform: translateY(-50%) scale(1.5);
   color: #ffffff;
 }
+
 .cinema-hall {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  min-height: 100vh;
-  position: relative;
 }
-
 .cinema-hall p {
   color: #fff;
   font-size: 22px;
   font-family: 'Lobster', cursive;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  position: relative;
+  bottom: 495px; 
+  right: 310px;  
+  transform: translateX(-50%); 
+  z-index: 10; 
+}
+
+
+.booking-title {
+  font-family: 'Rubik Wet Paint', cursive;
+  font-size: 40px;
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #000000;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5),
+               0 0 20px rgba(255, 0, 0, 0.4);
+  letter-spacing: 2px;
+  transition: transform 0.3s ease;
+}
+
+.booking-title:hover {
+  transform: scale(1.02);
 }
 
 .row {
@@ -332,19 +352,35 @@ html, body {
 }
 
 
+.seat-container {
+  background: linear-gradient(135deg, rgba(143, 5, 5, 0.4), rgba(61, 1, 1, 0.4));
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 30px;
+  margin-bottom: 30px;
+  max-width: 90vw;
+  overflow-x: auto;
+}
+
 .seat:hover {
   transform: scale(1.1);
 }
 
 .seat.available {
-  filter: hue-rotate(100deg); 
+  background-color: green;
+  border-radius: 20px;
+  filter: none;
 }
 
 .seat.selected {
-  filter: hue-rotate(200deg);
-  transform: scale(1.1);
-  transition: transform 0.2s ease, filter 0.3s ease;
+  background-color: blue;
+  border-radius: 20px;
+  filter: none;
 }
+
 
 .selected-seats {
   color: white;
@@ -352,6 +388,7 @@ html, body {
   text-align: center;
   margin-top: 20px;
 }
+
 
 .custom-button {
   border: none;
@@ -417,7 +454,7 @@ html, body {
 
 .custom-buttons {
   border: none;
-  position: absolute;
+  position: relative;
   width: 300px; 
   height: 100px;
   padding: 0;
@@ -433,8 +470,8 @@ html, body {
   color: white;
   font-family: 'Lobster', cursive;
   font-size: 24px;
-  top: 75%;
-  left: 50%;
+  top: 100%;
+  left: 10%;
   transform: translate(-50%, -50%);
 }
 

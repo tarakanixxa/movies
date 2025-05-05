@@ -16,7 +16,7 @@ const Booking = () => {
 
   return (
     <div>
-      <h1>Бронювання для фільму: {decodedTitle}</h1>
+      <h1 className="booking-title">Бронювання для фільму: {title}</h1>тз
       <CinemaHall />
     </div>
   );
