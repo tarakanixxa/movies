@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import chairIcon from '../assets/cinema-chair.svg';
 
-const CinemaHall = () => {
+const CinemaHall = ({ posterPath }) => {
   const seatLayout = [
     ...Array(4).fill(5),
     ...Array(2).fill(8),
@@ -21,40 +21,45 @@ const CinemaHall = () => {
   };
 
   return (
-    <div className="cinema-hall">
-    <div className="seat-container">
-      {seatLayout.map((seatsInRow, row) => (
-        <div className="row" key={row}>
-          {Array.from({ length: seatsInRow }, (_, i) => {
-            const seatId = `${row}-${i}`;
-            const isSelected = selectedSeats.includes(seatId);
-  
-            return (
-              <img
-                key={seatId}
-                src={chairIcon}
-                alt="seat"
-                className={`seat ${isSelected ? 'selected' : 'available'}`}
-                onClick={() => toggleSeat(row, i)}
-              />
-            );
-          })}
+    <div className="cinemahall-wrapper">
+      <div
+        className="cinemahall-background"
+        style={{ backgroundImage: `url(${posterPath})` }}
+      />
+      <div className="cinema-hall">
+        <div className="seat-container">
+          {seatLayout.map((seatsInRow, row) => (
+            <div className="row" key={row}>
+              {Array.from({ length: seatsInRow }, (_, i) => {
+                const seatId = `${row}-${i}`;
+                const isSelected = selectedSeats.includes(seatId);
+
+                return (
+                  <img
+                    key={seatId}
+                    src={chairIcon}
+                    alt="seat"
+                    className={`seat ${isSelected ? 'selected' : 'available'}`}
+                    onClick={() => toggleSeat(row, i)}
+                  />
+                );
+              })}
+            </div>
+          ))}
         </div>
-      ))}
+
+        <p className="selected-seats">
+          Вибрані місця: {selectedSeats.join(', ') || 'немає'}
+        </p>
+
+        <button
+          className="custom-button"
+          onClick={() => navigate('/home')}
+        >
+          <span>На головну</span>
+        </button>
+      </div>
     </div>
-  
-    <p className="selected-seats">
-      Вибрані місця: {selectedSeats.join(', ') || 'немає'}
-    </p>
-  
-    <button
-      className="custom-buttons"
-      onClick={() => navigate('/home')}
-    >
-      <span>На головну</span>
-    </button>
-  </div>
-  
   );
 };
 
