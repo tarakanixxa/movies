@@ -234,7 +234,7 @@ html, body {
       width: 100%;
       align-items: center;
     }
-  
+
     .movie-poster {
       width: 100%;
       max-width: 300px;
@@ -323,70 +323,24 @@ html, body {
 }
 
 .cinema-hall {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    "title"
+    "selected"
+    "seats";
   padding: 20px;
   height: 100%;
-  overflow-y: auto;
   color: white;
-}
-
-.seat-container {
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 30px;
-  margin-bottom: 30px;
-  max-width: 90vw;
-  overflow-x: auto;
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 5px;
-}
-
-.seat {
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.seat:hover {
-  transform: scale(1.1);
-}
-
-.seat.available {
-  background-color: green;
-  border-radius: 20px;
-  filter: none;
-}
-
-.seat.selected {
-  background-color: blue;
-  border-radius: 20px;
-  filter: none;
-}
-
-.selected-seats {
-  color: white;
-  font-size: 24px;
-  text-align: center;
-  margin-top: 20px;
+  gap: 20px;
 }
 
 .booking-title {
+  grid-area: title;
   font-family: 'Rubik Wet Paint', cursive;
   font-size: 40px;
   text-align: center;
-  margin: 40px 0 20px;
+  margin: 0;
   color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.5),
                0 0 20px rgba(255, 0, 0, 0.4);
@@ -398,6 +352,79 @@ html, body {
   transform: scale(1.02);
 }
 
+.selected-seats {
+  grid-area: selected;
+  font-size: 24px;
+  font-family: 'Lobster', cursive;
+  justify-self: start;
+  align-self: start;
+  margin: 0;
+}
+
+.seat-container {
+  grid-area: seats;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 30px;
+  max-width: 90vw;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  justify-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.seat {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border-radius: 20px;
+}
+
+.seat:hover {
+  transform: scale(1.1);
+}
+
+.seat.available {
+  background-color: green;
+}
+
+.seat.selected {
+  background-color: blue;
+}
+
+@media (max-width: 768px) {
+  .booking-title {
+    font-size: 28px;
+  }
+
+  .selected-seats {
+    font-size: 18px;
+  }
+
+  .seat {
+    width: 45px;
+    height: 45px;
+  }
+
+  .row {
+    gap: 6px;
+  }
+
+  .seat-container {
+    padding: 15px;
+  }
+}
 
 .custom-button {
   border: none;
