@@ -31,7 +31,7 @@ const CinemaHall = ({ posterPath, title }) => {
           {seatLayout.map((seatsInRow, row) => (
             <div className="row" key={row}>
               {Array.from({ length: seatsInRow }, (_, i) => {
-                const seatId = `${row}-${i}`;
+                const seatId = `${row + 1}-${i + 1}`;
                 const isSelected = selectedSeats.includes(seatId);
                 return (
                   <img
@@ -39,7 +39,7 @@ const CinemaHall = ({ posterPath, title }) => {
                     src={chairIcon}
                     alt="seat"
                     className={`seat ${isSelected ? 'selected' : 'available'}`}
-                    onClick={() => toggleSeat(row, i)}
+                    onClick={() => toggleSeat(row + 1, i + 1)}
                   />
                 );
               })}
@@ -48,7 +48,8 @@ const CinemaHall = ({ posterPath, title }) => {
         </div>
 
         <p className="selected-seats">
-          Вибрані місця: {selectedSeats.join(', ') || 'немає'}
+          Вибрані місця: 
+          {selectedSeats.join(', ') || 'немає'}
         </p>
 
         <button className="custom-button" onClick={() => navigate('/home')}>
