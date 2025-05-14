@@ -212,66 +212,6 @@ html, body {
   .movie-list::-webkit-scrollbar {
     display: none;
   }
-  @media (max-width: 768px) {
-    body, html {
-      overflow-y: auto;
-    }
-  
-    .movie-list {
-      flex-direction: column;
-      overflow-x: hidden;
-      overflow-y: auto;
-      height: auto;
-    }
-  
-    .movie-slide {
-      flex-direction: column;
-      height: auto;
-      padding: 20px;
-    }
-  
-    .movie-left {
-      width: 100%;
-      align-items: center;
-    }
-
-    .movie-poster {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      border-radius: 12px;
-    }
- 
-    
-    .movie-title {
-      font-size: 28px;
-      margin-top: 16px;
-      text-align: center;
-    }
-  
-    .movie-right {
-      width: 100%;
-      align-items: flex-start;
-      padding: 10px 0;
-      gap: 12px;
-    }
-  
-    .movie-description {
-      font-size: 16px;
-      margin: 0;
-      padding: 0;
-    }
-  
-    .movie-bottom {
-      font-size: 16px;
-      margin: 0;
-      padding: 0;
-    }
-    .scroll-button {
-      display: none;
-    }
-  }
-
 
   
   .scroll-button {
@@ -413,52 +353,6 @@ html, body {
   cursor: not-allowed;
 }
 
-@media (max-width: 768px) {
-  
-  .cinema-hall {
-    padding: 10px;
-    text-align: center;
-  }
-
-  .booking-title {
-    font-size: 20px;
-    margin-bottom: 15px;
-  }
-
-  .seat-container {
-    gap: 6px;
-  }
-
-  .row {
-    justify-content: center;
-  }
-
-  .seat {
-    width: 30px;
-    height: 30px;
-  }
-
-  .selected-seats {
-    font-size: 14px;
-    margin-top: 10px;
-  }
-
-  .custom-button {
-    width: 100%;
-    font-size: 16px;
-    padding: 10px;
-    margin-top: 20px;
-  }
-
-  .cinemahall-wrapper {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-
-  .cinemahall-background {
-    filter: blur(5px);
-    opacity: 0.3;
-  }
-}
 
 .modal {
   position: fixed;
@@ -594,4 +488,119 @@ html, body {
   flex-direction: column;
   gap: 20px;
   z-index: 3;
+}
+
+
+@media (max-width: 768px) {
+    body, html {
+      overflow-y: auto;
+    }
+  
+    .movie-list {
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+    }
+  
+    .movie-slide {
+      flex-direction: column;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .movie-left {
+      width: 100%;
+      align-items: center;
+    }
+
+    .movie-poster {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+    }
+ 
+    
+    .movie-title {
+      font-size: 28px;
+      margin-top: 16px;
+      text-align: center;
+    }
+  
+    .movie-right {
+      width: 100%;
+      align-items: flex-start;
+      padding: 10px 0;
+      gap: 12px;
+    }
+  
+    .movie-description {
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .movie-bottom {
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+    }
+    .scroll-button {
+      display: none;
+    }
+     .cinema-hall {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .booking-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .seat-container {
+    gap: 6px;
+  }
+
+  .row {
+    justify-content: center;
+  }
+
+  .seat {
+    width: 30px;
+    height: 30px;
+  }
+
+  .selected-seats {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .cinemahall-wrapper {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
+  }
+
+  .cinemahall-background {
+    filter: blur(5px);
+    opacity: 0.3;
+  }
+ .booking-buttons-container {
+  position: relative; 
+  left:3px;
+  bottom: 150px;
+}
+.custom-button{
+  width: 20%;
+}
+.custom-button span{
+  font-size: 15px;
+}
+  }
+@media (max-width: 425px){
+  .custom-button span{
+  font-size: 1 px;
+}
+
 }
